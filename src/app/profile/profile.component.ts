@@ -10,13 +10,17 @@ export class ProfileComponent implements OnInit {
 
   userName = 'Not specified';
 
+  user;
+
   constructor(private gitService: GithubService) {
     this.gitService.getUsername().subscribe(user => {
       console.log(user);
+      this.user = user;
     });
   }
 
   ngOnInit() {
+
   }
 
 }
