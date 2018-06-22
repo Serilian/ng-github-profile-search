@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import 'rxjs-compat/add/operator/map';
 
@@ -13,8 +13,11 @@ export class GithubService {
   }
 
   getUsername() {
-    return this.httpClient.get('http://api.github.com/users/' + this.userName);
+    return this.httpClient.get('https://api.github.com/users/' + this.userName);
+  }
 
+  getRepos() {
+    return this.httpClient.get('https://api.github.com/users/' + this.userName + '/repos');
   }
 
 }
