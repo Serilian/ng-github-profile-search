@@ -8,13 +8,19 @@ import {GithubService} from '../github.service';
 })
 export class ProfileComponent implements OnInit {
 
-  userName = 'Not specified';
-
+  username: string;
   repos;
-
   user;
 
+  ngOnInit() {
+  }
+
   constructor(private gitService: GithubService) {
+    this.user = false;
+  }
+
+  searchUser() {
+    this.gitService.updateUsername(this.username);
     this.gitService.getUsername().subscribe(user => {
       console.log(user);
       this.user = user;
@@ -25,8 +31,5 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
 
 }

@@ -8,7 +8,10 @@ import {GithubService} from './github.service';
 })
 export class AppComponent {
 
-  constructor() {}
+  username: string;
+
+  constructor(private githubService: GithubService) {}
+
 
 
 
